@@ -79,9 +79,22 @@
     {
     
     
-        window.open(scannedText);
+      
 
 
+
+        var scannedTextMemo = document.getElementById("scannedTextMemo");
+    	if(scannedTextMemo)
+    	{
+    		scannedTextMemo.value = scannedText;
+        window.open(scannedTextMemo.value);
+    	}
+    	var scannedTextMemoHist = document.getElementById("scannedTextMemoHist");
+    	if(scannedTextMemoHist)
+    	{
+    		scannedTextMemoHist.value = scannedTextMemoHist.value + '\n' + scannedText;
+        window.open(scannedTextMemo.value);
+    	}
 
 
     
