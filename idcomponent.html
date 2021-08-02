@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="mobile-container">
+
+            <!-- Top Navigation Menu -->
+            <div class="topnav">
+                <a href="#home" class="active">
+                    <img src="img/main-logo.png" alt="">
+                </a>
+                <div id="myLinks">
+                    <a href="#logout">Logout</a>
+                </div>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+
+    </header>
+    <center #capture id="capture">
+        <br><br>
+        <div class="id-container">
+            <div class="passport">
+                <img src="img/stud-passport.png" alt="">
+            </div>
+
+            <div class="student-meta">
+                <div id="student-name">NAME: <span id="student-name">Emmanuel Asika</span></div>
+                <div id="student-mat">MAT. No: <span id="student-name">U16/FNS/CSC/1014</span></div>
+                <div id="student-faculty">FACULTY: <span id="student-name">APPLIED SCIENCE</span></div>
+                <div id="student-dept">DEPT: <span id="student-name">COMPUTER SCIENCE</span></div>
+
+            </div>
+        </div>
+
+
+        <div id="qrcode">
+
+        </div>
+
+    </center>
+
+    <center>
+        <button class="print btn-submit">PRINT / SAVE E-ID</button>
+    </center>
+
+    <style>
+        .id-container {
+            display: flex;
+            background-image: url('img/id.png');
+            height: 250px;
+            width: 100%;
+
+
+            background-repeat: no-repeat;
+            justify-content: center;
+            background-position: top center;
+            justify-content: center;
+
+        }
+
+
+
+
+        .passport,
+        .student-meta {
+            margin-top: 15px;
+            height: 200px;
+
+        }
+
+
+        .student-meta {
+            margin-left: 20px;
+        }
+
+        .student-meta div {
+            padding-bottom: 5px;
+        }
+
+        .student-meta span {
+            text-align: left;
+            font-weight: normal;
+            font-size: 11px;
+        }
+
+        .student-meta {
+            font-weight: bold;
+            font-size: 11px;
+            line-height: 15px;
+            text-align: left;
+            color: #656565;
+
+        }
+
+
+        #qrcode img {
+            width: 150px;
+            margin-bottom: 20px
+        }
+    </style>
+
+
+    <script src="qrcode.min.js"></script>
+    <script src="dist/html2pdf.bundle.min.js"></script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+
+            } else {
+                x.style.display = "block";
+
+            }
+        }
+
+
+
+        let printer = document.querySelector('.print');
+
+        printer.addEventListener("click", printit);
+
+
+        function printit() {
+
+
+
+            var element = document.getElementById('capture');
+            html2pdf(element);
+
+
+        }
+
+
+
+
+        new QRCode(document.getElementById("qrcode"), "http://jindo.dev.naver.com/collie");
+
+    </script>
+
+
+
+</body>
+
+</html>
